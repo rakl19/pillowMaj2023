@@ -6,7 +6,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 var WebpackObfuscator = require("webpack-obfuscator");
 
 module.exports = {
-  mode: "development",
+  mode: "production",
   entry: {
     bundle: path.resolve(__dirname, "src/index.js"),
   },
@@ -58,12 +58,12 @@ module.exports = {
     // new BundleAnalyzerPlugin(),
     // new FaviconsWebpackPlugin("./src/assets/favicon-16x16.png"),
     
-    // new WebpackObfuscator(
-    //   {
-    //     rotateStringArray: true,
-    //   },
-    //   ["[name][contenthash:6].js"]
-    // ),
+    new WebpackObfuscator(
+      {
+        rotateStringArray: true,
+      },
+      ["[name][contenthash:6].js"]
+    ),
   ],
   devtool: "source-map",
 };
