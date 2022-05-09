@@ -5,11 +5,14 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
+  <title>
+    <%= htmlWebpackPlugin.options.title %>
+  </title>
   <!-- <link rel="stylesheet" href="./style/main.scss" /> -->
   <script src="https://kit.fontawesome.com/13618a2301.js" crossorigin="anonymous"></script>
   <!-- <script type="module" src="./index.js" defer></script> -->
 
+  <!-- <link rel="icon" href="src/favicon.ico"> -->
 
 </head>
 
@@ -157,11 +160,13 @@
           <input type="number" id="sPLeft" name="sPLeft" value="15" min="0" max="150" step="1">
         </div>
         <div class="field">
-          <label for="sPRight"><i class="fa-solid fa-arrow-right-from-bracket fa-rotate-180 fa-xl" style="padding:10px"></i></label>
+          <label for="sPRight"><i class="fa-solid fa-arrow-right-from-bracket fa-rotate-180 fa-xl"
+              style="padding:10px"></i></label>
           <input type="number" id="sPRight" name="sPRight" value="15" min="0" max="150" step="1">
         </div>
         <div class="field">
-          <label for="sPTop"><i class="fa-solid fa-arrow-up-from-bracket fa-xl fa-rotate-180" style="padding:10px"></i></label>
+          <label for="sPTop"><i class="fa-solid fa-arrow-up-from-bracket fa-xl fa-rotate-180"
+              style="padding:10px"></i></label>
           <input type="number" id="sPTop" name="sPTop" value="15" min="0" max="150" step="1">
         </div>
         <div class="field">

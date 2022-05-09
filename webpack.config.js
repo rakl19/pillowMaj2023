@@ -2,8 +2,8 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 // const BundleAnalyzerPlugin =
 //   require('webpack-bundle-analyzer').BundleAnalyzerPlugin
-// const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
-var WebpackObfuscator = require("webpack-obfuscator");
+const WebpackObfuscator = require("webpack-obfuscator");
+const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 
 module.exports = {
   mode: "production",
@@ -51,13 +51,14 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: "Webpack App",
+      title: "PillowPltCalc",
       filename: "index.html",
       template: "src/template.html",
     }),
+
+    new FaviconsWebpackPlugin("./src/assets/favicon.ico"),
     // new BundleAnalyzerPlugin(),
-    // new FaviconsWebpackPlugin("./src/assets/favicon-16x16.png"),
-    
+
     new WebpackObfuscator(
       {
         rotateStringArray: true,
