@@ -3,12 +3,13 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 // const BundleAnalyzerPlugin =
 //   require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const WebpackObfuscator = require("webpack-obfuscator");
-const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
+// const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 
 module.exports = {
   mode: "production",
   entry: {
     bundle: path.resolve(__dirname, "src/index.js"),
+    
   },
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -56,7 +57,7 @@ module.exports = {
       template: "src/template.html",
     }),
 
-    new FaviconsWebpackPlugin("./src/assets/favicon.ico"),
+    // new FaviconsWebpackPlugin("./src/assets/favicon.ico"),
     // new BundleAnalyzerPlugin(),
 
     new WebpackObfuscator(
