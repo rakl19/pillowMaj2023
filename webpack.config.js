@@ -55,7 +55,7 @@ module.exports = {
       title: "PillowPltCalc",
       filename: "index.html",
       template: "src/template.html",
-      favicon: 'src/favicon.png'
+      favicon: 'src/favicon.ico'
     }),
 
     // new FaviconsWebpackPlugin("./src/assets/favicon.ico"),
