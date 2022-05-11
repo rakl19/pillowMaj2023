@@ -403,7 +403,7 @@ window.addEventListener("load", (e) => {
     const wr = window.innerWidth / obj.bPLength;
     const hr = (window.innerHeight * innerHeightRatio) / obj.bPWidth;
 
-    scale = Math.min(wr, hr) * 0.95;
+    scale = Math.min(wr, hr) * 0.9;
 
     const frameOnScreenWidth = obj.bPLength * scale;
     const frameOnScreenHeight = obj.bPWidth * scale;
