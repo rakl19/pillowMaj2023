@@ -6,7 +6,7 @@ window.addEventListener("load", (e) => {
   const canvas = document.getElementById("canvas");
   const ctx = canvas.getContext("2d");
   canvas.width = window.innerWidth;
-  const innerHeightRatio = 0.8;
+  const innerHeightRatio = 0.7;
   canvas.height = window.innerHeight * innerHeightRatio;
   // canvas.style.height = 500 + "px";
 
