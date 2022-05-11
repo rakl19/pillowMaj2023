@@ -6,7 +6,14 @@ window.addEventListener("load", (e) => {
   const canvas = document.getElementById("canvas");
   const ctx = canvas.getContext("2d");
   canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight * 0.6;
+  const innerHeightRatio = 0.8;
+  canvas.height = window.innerHeight * innerHeightRatio;
+  // canvas.style.height = 500 + "px";
+
+  // ctx.mozImageSmoothingEnabled = false;
+  // ctx.webkitImageSmoothingEnabled = false;
+  // ctx.msImageSmoothingEnabled = false;
+  // ctx.imageSmoothingEnabled = false;
 
   const h6 = document.getElementById("status");
 
@@ -40,11 +47,82 @@ window.addEventListener("load", (e) => {
     drawSeam();
     drawSpots();
     weightTPBP();
+    holesOnTP();
+
+    // // Set display size (css pixels).
+    // var size = 300;
+    // canvas.style.width = size + "px";
+    // canvas.style.height = size + "px";
+
+    // // Set actual size in memory (scaled to account for extra pixel density).
+    // var scale1 = window.devicePixelRatio; // Change to 1 on retina screens to see blurry canvas.
+    // canvas.width = Math.floor(size * scale1);
+    // canvas.height = Math.floor(size * scale1);
+
+    // // Normalize coordinate system to use CSS pixels.
+    // ctx.scale(scale1, scale1);
+
+    // ctx.fillStyle = "#bada55";
+    // ctx.fillRect(10, 10, 300, 300);
+    // ctx.fillStyle = "#ffffff";
+    // ctx.font = "28px Arial";
+    // ctx.textAlign = "center";
+    // ctx.textBaseline = "middle";
+
+    // var x = size / 2;
+    // var y = size / 2;
+
+    // var textString = "I love MDN";
+    // ctx.fillText(textString, x, y);
 
     let transform = ctx.getTransform();
     ctx.restore();
     return transform;
   }
+
+  function holesOnTP() {
+    if (form.cbHoleLT.checked) {
+      ctx.strokeStyle = "orangered";
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.arc(obj.tPholeLTposX + obj.tPOffsetX, obj.tPWidth - obj.tPholeLTposY + obj.tPOffsetY, obj.tPholeLTdiam / 2, 0, 2 * Math.PI);
+      ctx.stroke();
+    }
+  }
+  //  function holesOnTP() {
+  //   // if (form.cbHoleLT.checked) {
+
+  //   ctx.strokeStyle = "orangered";
+  //   ctx.lineWidth = 1;
+  //   ctx.beginPath();
+  //   ctx.arc(obj.tPholeLTposX + obj.tPOffsetX, obj.tPWidth - obj.tPholeLTposY + obj.tPOffsetY, obj.tPholeLTdiam / 2, 0, 2 * Math.PI);
+  //   ctx.stroke();
+
+  //   // }
+  //   // if (form.cbHoleLB.checked) {
+  //   ctx.strokeStyle = "orangered";
+  //   ctx.lineWidth = 1;
+  //   ctx.beginPath();
+  //   ctx.arc(obj.tPholeLBposX + obj.tPOffsetX, obj.tPholeLBposY + obj.tPOffsetY, obj.tPholeLBdiam / 2, 0, 2 * Math.PI);
+  //   ctx.stroke();
+  //   // }
+
+  //   // if (form.cbHoleRT.checked) {
+  //   ctx.strokeStyle = "orangered";
+  //   ctx.lineWidth = 1;
+  //   ctx.beginPath();
+  //   ctx.arc(obj.tPLength + obj.tPOffsetX - obj.tPholeRTposX, obj.tPWidth - obj.tPholeRTposY + obj.tPOffsetY, obj.tPholeRTdiam / 2, 0, 2 * Math.PI);
+  //   ctx.stroke();
+  //   // }
+
+  //   // if (form.cbHoleRB.checked) {
+  //   ctx.strokeStyle = "orangered";
+  //   ctx.lineWidth = 1;
+  //   ctx.beginPath();
+  //   ctx.arc(obj.tPLength + obj.tPOffsetX - obj.tPholeRBposX, obj.tPholeRBposY + obj.tPOffsetY, obj.tPholeRBdiam / 2, 0, 2 * Math.PI);
+  //   ctx.stroke();
+  //   // }
+  // }
 
   function drawBP() {
     ctx.save();
@@ -87,6 +165,41 @@ window.addEventListener("load", (e) => {
     ctx.stroke();
     ctx.restore();
   }
+
+  // function holesOnTP() {
+  //   // if (form.cbHoleLT.checked) {
+  //   ctx.save();
+  //   ctx.strokeStyle = "orangered";
+  //   ctx.lineWidth = 1;
+  //   ctx.beginPath();
+  //   ctx.arc(obj.tPholeLTposX + obj.tPOffsetX, obj.tPWidth - obj.tPholeLTposY + obj.tPOffsetY, obj.tPholeLTdiam / 2, 0, 2 * Math.PI);
+  //   ctx.stroke();
+  //   ctx.restore();
+  //   // }
+  //   // if (form.cbHoleLB.checked) {
+  //   ctx.strokeStyle = "orangered";
+  //   ctx.lineWidth = 1;
+  //   ctx.beginPath();
+  //   ctx.arc(obj.tPholeLBposX + obj.tPOffsetX, obj.tPholeLBposY + obj.tPOffsetY, obj.tPholeLBdiam / 2, 0, 2 * Math.PI);
+  //   ctx.stroke();
+  //   // }
+
+  //   // if (form.cbHoleRT.checked) {
+  //   ctx.strokeStyle = "orangered";
+  //   ctx.lineWidth = 1;
+  //   ctx.beginPath();
+  //   ctx.arc(obj.tPLength + obj.tPOffsetX - obj.tPholeRTposX, obj.tPWidth - obj.tPholeRTposY + obj.tPOffsetY, obj.tPholeRTdiam / 2, 0, 2 * Math.PI);
+  //   ctx.stroke();
+  //   // }
+
+  //   // if (form.cbHoleRB.checked) {
+  //   ctx.strokeStyle = "orangered";
+  //   ctx.lineWidth = 1;
+  //   ctx.beginPath();
+  //   ctx.arc(obj.tPLength + obj.tPOffsetX - obj.tPholeRBposX, obj.tPholeRBposY + obj.tPOffsetY, obj.tPholeRBdiam / 2, 0, 2 * Math.PI);
+  //   ctx.stroke();
+  //   // }
+  // }
 
   let pressed = false;
   const diceOne = document.getElementById("diceOne");
@@ -288,9 +401,9 @@ window.addEventListener("load", (e) => {
     // obj.bPWidth = form.bPWidth.valueAsNumber;
 
     const wr = window.innerWidth / obj.bPLength;
-    const hr = (window.innerHeight * 0.6) / obj.bPWidth;
+    const hr = (window.innerHeight * innerHeightRatio) / obj.bPWidth;
 
-    scale = Math.min(wr, hr) * 0.9;
+    scale = Math.min(wr, hr) * 0.95;
 
     const frameOnScreenWidth = obj.bPLength * scale;
     const frameOnScreenHeight = obj.bPWidth * scale;
@@ -298,7 +411,7 @@ window.addEventListener("load", (e) => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     translatePos.x = Math.round(window.innerWidth / 2 - frameOnScreenWidth / 2);
-    translatePos.y = Math.round((0.6 * window.innerHeight) / 2 - frameOnScreenHeight / 2);
+    translatePos.y = Math.round((innerHeightRatio * window.innerHeight) / 2 - frameOnScreenHeight / 2);
     draw(scale, translatePos);
     //0.6 ->> canvas.height
   }
@@ -376,6 +489,24 @@ window.addEventListener("load", (e) => {
     }
   }
 
+  function validatetPholeLTdiam() {
+    if (obj.tPholeLTdiam / 2 < obj.tPholeLTposX) {
+      draw(scale, translatePos);
+      tPholeLTdiam.style.color = "black";
+    } else {
+      tPholeLTdiam.style.color = "red";
+    }
+  }
+
+  function validatettPholeLTposX() {
+    if (obj.tPholeLTposX > obj.tPholeLTdiam / 2) {
+      draw(scale, translatePos);
+      tPholeLTposX.style.color = "black";
+    } else {
+      tPholeLTposX.style.color = "red";
+    }
+  }
+
   const bPThickness = document.getElementById("bPThickness");
   const tPThickness = document.getElementById("tPThickness");
 
@@ -405,6 +536,22 @@ window.addEventListener("load", (e) => {
   const wPX = document.getElementById("wPX");
   const wPY = document.getElementById("wPY");
   const wPfi = document.getElementById("wPfi");
+  const tPholeLTdiam = document.getElementById("tPholeLTdiam");
+  const tPholeLTposX = document.getElementById("tPholeLTposX");
+  const tPholeLTposY = document.getElementById("tPholeLTposY");
+
+  tPholeLTdiam.addEventListener("input", function () {
+    getInputs();
+    validatetPholeLTdiam();
+  });
+  tPholeLTposX.addEventListener("input", function () {
+    getInputs();
+    validatettPholeLTposX();
+  });
+  tPholeLTposY.addEventListener("input", function () {
+    getInputs();
+    draw(scale, translatePos);
+  });
 
   bPLength.addEventListener("input", function () {
     getInputs();
@@ -483,7 +630,7 @@ window.addEventListener("load", (e) => {
     } else {
       const inverseZoomX = 1 / transform.a;
       const inverseZoomY = 1 / transform.d;
-      h6.innerHTML = `x: ${(inverseZoomX * evt.offsetX - inverseZoomX * transform.e).toFixed(1)}, y: ${(inverseZoomY * evt.offsetY - inverseZoomY * transform.f + obj.bPWidth).toFixed(1)}`;
+      h6.innerHTML = `x: ${(inverseZoomX * evt.offsetX - inverseZoomX * transform.e).toFixed(1)}; y: ${(inverseZoomY * evt.offsetY - inverseZoomY * transform.f + obj.bPWidth).toFixed(1)}`;
     }
     // } else {
     //   const inverseZoomX = 1 / transform.a;
@@ -517,7 +664,7 @@ window.addEventListener("load", (e) => {
 
   window.addEventListener("resize", function () {
     canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight * 0.6;
+    canvas.height = window.innerHeight * innerHeightRatio;
     draw(scale, translatePos);
     showAll();
   });

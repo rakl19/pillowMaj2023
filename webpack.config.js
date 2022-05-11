@@ -6,10 +6,11 @@ const WebpackObfuscator = require("webpack-obfuscator");
 // const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 
 module.exports = {
-  mode: "production",
+  mode: "development",
+  performance: { hints: false },
+
   entry: {
     bundle: path.resolve(__dirname, "src/index.js"),
-    
   },
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -55,7 +56,7 @@ module.exports = {
       title: "PillowPltCalc",
       filename: "index.html",
       template: "src/template.html",
-      favicon: 'src/favicon.ico'
+      favicon: "src/favicon.ico",
     }),
 
     // new FaviconsWebpackPlugin("./src/assets/favicon.ico"),
