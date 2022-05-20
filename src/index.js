@@ -2,16 +2,20 @@ import "./styles/main.scss";
 import "./showHolesForm.js";
 import { drawDXF } from "./drawDXF";
 
+
+const getWord = async () => {
+  const res = await fetch("/.netlify/functions/getword");
+  const word = await res.json();
+  console.log(word);
+};
+
+getWord();
+
+
 window.addEventListener("load", (e) => {
 
 
-const getWord = async () =>{
-const res = await fetch("https://www.pillowplate.xyz/.netlify/functions/hello");
-const word = await res.json();
-console.log(word);
-}
 
-getWord()
 
 
   const canvas = document.getElementById("canvas");
