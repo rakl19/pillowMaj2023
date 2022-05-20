@@ -3,17 +3,17 @@ import "./showHolesForm.js";
 import { drawDXF } from "./drawDXF";
 
 
-const getWord = async () => {
-  const res = await fetch("/.netlify/functions/getword");
-  const word = await res.json();
-  console.log(word);
-};
 
-getWord();
+
 
 
 window.addEventListener("load", (e) => {
-
+  const getWord = async () => {
+    const res = await fetch("/.netlify/functions/getword");
+    const word = await res.json();
+    console.log(word);
+  };
+  getWord();
   const canvas = document.getElementById("canvas");
   const ctx = canvas.getContext("2d");
   canvas.width = window.innerWidth;
