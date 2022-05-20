@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>
+    PillowPltCalc
+  </title>
+  <!-- <link rel="stylesheet" href="./style/main.scss" /> -->
+  <script src="https://kit.fontawesome.com/13618a2301.js" crossorigin="anonymous"></script>
+  <!-- <script type="module" src="./index.js" defer></script> -->
+  <!-- <link rel="icon" type="image/png" sizes="32x32" href="%PUBLIC_URL%/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="%PUBLIC_URL%/favicon-16x16.png" />
+  <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" type="image/png/ico" /> -->
+
+
+<link rel="icon" href="favicon.ico"><script defer src="bundle3a26fd.js"></script></head>
+
+<body>
+  <div class="wrapper">
+    <div id="canvasWrapper">
+      <canvas id="canvas"></canvas>
+    </div>
+
+    <div class="zoomButtons">
+      <button id="showAll" title="show all"><i class="fa-solid fa-maximize fa-lg"></i>
+
+      </button>
+      <button id="minus" title="zoom out"><i class="fa-solid fa-magnifying-glass-minus fa-lg"></i>
+
+      </button>
+      <button id="plus" title="zoom in"><i class="fa-solid fa-magnifying-glass-plus fa-lg"></i>
+
+      </button>
+    </div>
+    <div class="info">
+      <span id="bPweight">BP:</span>
+      <span id="tPweight">TP:</span>
+      <span id="weldT">welding time:</span>
+      <span id="spotsInfo">spots:</span>
+    </div>
+    <div id="xycoordinates">
+      <h6 id="status"></h6>
+    </div>
+
+    <div id="controls">
+      <div style="float: left; padding: 10px">
+        Width:
+        <input type="number" id="widthInput" value="600" />
+      </div>
+      <div style="float: left; padding: 10px">
+        <input type="number" id="heightInput" value="300" />
+        Height:
+      </div>
+    </div>
+
+    <form id="myForm">
+      <div class="bottomPlt">
+        <h3 style="color: green">Bottom plate<i class="far fa-square" style="color: green; transform: scaleX(1.5)"></i>
+        </h3>
+        <hr />
+        <div class="field">
+
+          <!-- <label for="bPLength"><i class="fas fa-arrows-alt-h fa-lg"></i></label> -->
+          <label for="bPLength"><i class="fa-solid fa-arrows-left-right fa-xl" style="padding: 10px"></i></label>
+          <input type="number" id="bPLength" name="bPLength" value="600" step="1" min="600" />
+        </div>
+        <div class="field">
+          <label for="bPWidth"><i class="fas fa-arrows-up-down fa-xl"></i></label>
+          <input type="number" id="bPWidth" name="bPWidth" value="300" step="1" min="300" max="2000" />
+        </div>
+        <div class="field">
+          <label for="bPThickness">THICK.</label>
+          <select name="bPThickness" id="bPThickness">
+            <option value="0.8">0,8</option>
+            <option value="1.0">1,0</option>
+            <option value="1.2">1,2</option>
+            <option value="1.5">1,5</option>
+            <option value="2.0">2,0</option>
+            <option value="2.5">2,5</option>
+            <option value="3.0">3,0</option>
+            <option value="4.0" selected="">4,0</option>
+            <option value="5.0">5,0</option>
+            <option value="6.0">6,0</option>
+            <option value="8.0">8,0</option>
+            <option value="10">10,0</option>
+            <option value="12">12,0</option>
+            <option value="15">15,0</option>
+            <option value="20">20,0</option>
+          </select>
+        </div>
+      </div>
+      <div class="topPlt">
+        <h3 style="color: orange">Top plate<i class="far fa-square" style="color: orange; transform: scaleX(1.5)"></i>
+        </h3>
+        <hr />
+        <div class="field">
+          <label for="tPLength"><i class="fa-solid fa-arrows-left-right fa-xl" style="padding:10px"></i></label>
+          <input type="number" id="tPLength" name="tPLength" value="600" step="1" min="600" max="2000" />
+        </div>
+        <div class="field">
+          <label for="tPWidth"><i class="fas fa-arrows-up-down fa-xl"></i></label>
+          <input type="number" id="tPWidth" name="tPWidth" value="300" step="1" min="300" />
+        </div>
+        <div class="field">
+          <label for="tPThickness">THICK.</label>
+          <select name="tPThickness" id="tPThickness">
+            <option value="0.8">0,8</option>
+            <option value="1.0" selected="">1,0</option>
+            <option value="1.2">1,2</option>
+            <option value="1.5">1,5</option>
+            <option value="2.0">2,0</option>
+          </select>
+        </div>
+      </div>
+      <div class="topPltOffset">
+        <h3>Top plate offset<i class="far fa-clone"></i></h3>
+        <hr />
+
+        <div class="field">
+          <label for="tPOffsetX"><i class="fas fa-arrow-right fa-xl"></i></label>
+          <input type="number" id="tPOffsetX" name="tPOffsetX" value="0" min="0" max="12000" step="1" />
+        </div>
+        <div class="field">
+          <label for="tPOffsetY"><i class="fas fa-arrow-up fa-xl"></i></label>
+          <input type="number" id="tPOffsetY" name="tPOffsetY" value="0" min="0" max="2000" step="1" />
+        </div>
+      </div>
+      <!-- ------------------------------ welding patern ------------------------->
+      <div class="weldingPattern">
+        <h3 style="color:blue">Welding pattern<i class="fas fa-vector-square" style=" color:blue"></i></h3>
+        <hr>
+        <div class="field">
+          <label for="wPX"><i class="fas fa-ellipsis-h fa-xl"></i></label>
+          <input type="number" id="wPX" name="wPX" value="70" min="20" max="200" step="0.1">
+        </div>
+        <div class="field">
+          <label for="wPY"><i class="fas fa-ellipsis-v fa-xl" style="padding:0 15px"></i></label>
+          <input type="number" id="wPY" name="wPY" value="80" min="20" max="200" step="0.1">
+        </div>
+        <div class="field">
+          <label for="wPfi" style="font-size: 1.5rem; text-align:center; padding: 0 10px;">&#8709</label>
+          <input type="number" id="wPfi" name="wPfi" value="14" min="5" max="20" step="0.5">
+        </div>
+        <div class="field">
+          <label for="spotsInCorners"><i id='diceOne' class="fa-solid fa-dice-one"></i><i id="diceFour"
+              class="fa-solid fa-dice-four"></i></label>
+          <!-- <input type="checkbox" id="spotsInCorners" name="spotsInCorners" class="spotsInCorners" /> -->
+          <!-- <input type="button" id="spotsInCorners" name="spotsInCorners" class="styled spotsInCorners" value="Invert" /> -->
+          <button type="button" id="spotsInCorners" class="styled">Invert</button>
+        </div>
+      </div>
+      <!-- ------------------------------ seam pos ------------------------->
+      <div class="seamPos">
+        <h3 style="color:lightgreen"><i class="fas fa-grip-lines-vertical" style=" color:lightgreen"></i>Seam position<i
+            class="fas fa-grip-lines" style=" color:lightgreen"></i>
+        </h3>
+        <hr>
+        <div class="field">
+          <label for="sPLeft"><i class="fa-solid fa-arrow-right-from-bracket fa-xl" style="padding:10px"></i></label>
+          <input type="number" id="sPLeft" name="sPLeft" value="15" min="0" max="150" step="1">
+        </div>
+        <div class="field">
+          <label for="sPRight"><i class="fa-solid fa-arrow-right-from-bracket fa-rotate-180 fa-xl"
+              style="padding:10px"></i></label>
+          <input type="number" id="sPRight" name="sPRight" value="15" min="0" max="150" step="1">
+        </div>
+        <div class="field">
+          <label for="sPTop"><i class="fa-solid fa-arrow-up-from-bracket fa-xl fa-rotate-180"
+              style="padding:10px"></i></label>
+          <input type="number" id="sPTop" name="sPTop" value="15" min="0" max="150" step="1">
+        </div>
+        <div class="field">
+          <label for="sPBottom"><i class="fa-solid fa-arrow-up-from-bracket fa-xl" style="padding:10px"></i></label>
+          <input type="number" id="sPBottom" name="sPBottom" value="15" min="0" max="150" step="1">
+        </div>
+      </div>
+      <!-- ------------------------------ Position welding spots in corners ------------------------->
+      <div class="holesOnTopPlate">
+        <h3>holes on Top Plate</h3>
+        <hr>
+        <div class="holesOnTP">
+          <p class="holesOnTPmiddleSign">select holes</p>
+
+
+          <div class="hLT">
+            <input type="checkbox" id="cbHoleLT" name="cbHoleLT" class="holesOnTPcheck">
+            <label for="cbHoleLT"></label>
+          </div>
+          <div class="hLB">
+            <input type="checkbox" id="cbHoleLB" name="cbHoleLB" class="holesOnTPcheck">
+            <label for="cbHoleLB"></label>
+          </div>
+          <div class="hRT">
+            <input type="checkbox" id="cbHoleRT" name="cbHoleRT" class="holesOnTPcheck">
+            <label for="cbHoleRT"></label>
+          </div>
+          <div class="hRB">
+            <input type="checkbox" id="cbHoleRB" name="cbHoleRB" class="holesOnTPcheck">
+            <label for="cbHoleRB"></label>
+          </div>
+        </div>
+        <div class="field">
+          <label for="forceRibbon"><i class="far fa-minus-square fa-xl"></i>Force ribbon</label>
+          <input type="checkbox" id="forceRibbon" name="forceRibbon" class="forceRibbon">
+        </div>
+        <div class="field">
+          <label for="alignWithSpots"><i class="fas fa-bullseye fa-xl"></i>Align spots</label>
+          <input type="checkbox" id="alignWithSpots" name="alignWithSpots" class="alignWithSpots">
+        </div>
+      </div>
+
+      <!-- ------------------------------------------------------------------------------------------------------- -->
+
+
+      <div class="holeOnLT hide" id="tPholeLT">
+        <h3><i class="fa-solid fa-arrow-pointer fa-lg" style="padding: 10px"></i>LT corner</h3>
+        <hr>
+        <div class="field">
+          <label for="tPholeLTposY"><i class="fas fa-arrow-down fa-xl"></i></label>
+          <input type="number" id="tPholeLTposY" name="tPholeLTposY" min="0" value="50">
+        </div>
+        <div class="field">
+          <label for="tPholeLTposX"><i class="fas fa-arrow-right fa-xl"></i></label>
+          <input type="number" id="tPholeLTposX" name="tPholeLTposX" min="0" value="50">
+        </div>
+        <div class="field">
+          <label for="tPholeLTdiam">hole &#8709</label>
+          <input type="number" id="tPholeLTdiam" name="tPholeLTdiam" value="21" min="5" step="0.1">
+        </div>
+      </div>
+
+      <div class="holeOnLB hide" id="tPholeLB">
+        <h3><i class="fa-solid fa-arrow-pointer fa-flip-vertical fa-lg" style="padding: 10px"></i>LB corner</h3>
+        <hr>
+        <div class="field">
+          <label for="tPholeLBposX"><i class="fas fa-arrow-right fa-xl"></i></label>
+          <input type="number" id="tPholeLBposX" name="tPholeLBposX" min="0" value="50">
+        </div>
+        <div class="field">
+          <label for="tPholeLBposY"><i class="fas fa-arrow-up fa-xl"></i></label>
+          <input type="number" id="tPholeLBposY" name="tPholeLBposY" min="0" value="50">
+        </div>
+        <div class="field">
+          <label for="tPholeLBdiam">hole &#8709</label>
+          <input type="number" id="tPholeLBdiam" name="tPholeLBdiam" value="21" min="5" step="0.1">
+        </div>
+      </div>
+
+
+      <div class="holeOnRT hide" id="tPholeRT">
+        <h3>RT corner<i class="fa-solid fa-arrow-pointer fa-flip-horizontal fa-lg" style="padding: 10px"></i></h3>
+        <hr>
+        <div class="field">
+          <label for="tPholeRTposY"><i class="fas fa-arrow-down fa-xl"></i></label>
+          <input type="number" id="tPholeRTposY" name="tPholeRTposY" min="0" value="50">
+        </div>
+        <div class="field">
+          <label for="tPholeRTposX"><i class="fas fa-arrow-left fa-xl"></i></label>
+          <input type="number" id="tPholeRTposX" name="tPholeRTposX" min="0" value="50">
+        </div>
+
+        <div class="field">
+          <label for="tPholeRTdiam">hole &#8709</label>
+          <input type="number" id="tPholeRTdiam" name="tPholeRTdiam" value="21" min="5" step="0.1">
+        </div>
+      </div>
+
+      <div class="holeOnRB hide" id="tPholeRB">
+        <h3>RB corner<i class="fa-solid fa-arrow-pointer fa-flip-both fa-lg" style="padding: 10px"></i></h3>
+        <hr>
+        <div class="field">
+          <label for="tPholeRBposX"><i class="fas fa-arrow-left fa-xl"></i></label>
+          <input type="number" id="tPholeRBposX" name="tPholeRBposX" min="0" value="50">
+        </div>
+        <div class="field">
+          <label for="tPholeRBposY"><i class="fas fa-arrow-up fa-xl"></i></label>
+          <input type="number" id="tPholeRBposY" name="tPholeRBposY" min="0" value="50">
+        </div>
+        <div class="field">
+          <label for="tPholeRBdiam">hole &#8709</label>
+          <input type="number" id="tPholeRBdiam" name="tPholeRBdiam" value="21" min="5" step="0.1">
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+    </form>
+  </div> <!-- wrapper -->
+  
+
+  <div class="dxfLink">
+    <a href="" download="pillow.dxf" id="dxf" class="drawDXF">save as .dxf</a>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
