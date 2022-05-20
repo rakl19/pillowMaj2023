@@ -3,6 +3,17 @@ import "./showHolesForm.js";
 import { drawDXF } from "./drawDXF";
 
 window.addEventListener("load", (e) => {
+
+
+const getWord = async () =>{
+const res = await fetch("https://www.pillowplate.xyz/.netlify/functions/hello");
+const word = await res.json();
+console.log(word);
+}
+
+getWord()
+
+
   const canvas = document.getElementById("canvas");
   const ctx = canvas.getContext("2d");
   canvas.width = window.innerWidth;
