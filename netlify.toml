@@ -1,3 +1,8 @@
 [build]
     functions="netlify/functions"
+#[[redirects]]
+#       from = "/.netlify/functions/getword"
+#       to = "/getword"
+       
+      
    

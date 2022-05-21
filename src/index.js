@@ -2,9 +2,9 @@ import "./styles/main.scss";
 import "./showHolesForm.js";
 import { drawDXF } from "./drawDXF";
 
+fetch("/.netlify/functions/getword").then((res) => res.json()).then(data=>console.log(data));
+
 window.addEventListener("load", (e) => {
-  fetch("/getword")
-    .then((res) => console.log(res.json());
     
   // const getWord = async () => {
   //   const res = await fetch("/.netlify/functions/getword");
