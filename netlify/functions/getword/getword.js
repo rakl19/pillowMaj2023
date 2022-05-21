@@ -4,7 +4,7 @@ const handler = async (event) => {
     const tpLength = 123
     return {
       statusCode: 200,
-      body: JSON.stringify(`${tpLength}`),
+      body: JSON.stringify(message:'123456'),
       // // more keys you can return:
       // headers: { "headerName": "headerValue", ... },
       // isBase64Encoded: true,
