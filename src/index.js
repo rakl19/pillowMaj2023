@@ -4,8 +4,8 @@ import { drawDXF } from "./drawDXF";
 
 const getDupa = async () => {
   const res = await fetch("https://www.pillowplate.xyz/.netlify/functions/getword");
-  const ddupa = await res.text();
-  console.log(ddupa);
+  // const ddupa = await res.text();
+  console.log(res);
 };
 
 getDupa();
