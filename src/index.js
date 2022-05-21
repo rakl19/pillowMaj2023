@@ -2,11 +2,11 @@ import "./styles/main.scss";
 import "./showHolesForm.js";
 import { drawDXF } from "./drawDXF";
 
-// fetch("https://www.pillowplate.xyz/.netlify/functions/getword")
-//   .then((res) => console.log(res))
+fetch("https://www.pillowplate.xyz/.netlify/functions/getword")
+  .then((res) => console.log(res.text()))
   // .then((data) => console.log(data));
 
-fetch("https://dog.ceo/api/breeds/image/random").then(res=>res.json()).then(data=>console.log(data));
+// fetch("https://dog.ceo/api/breeds/image/random").then(res=>res.json()).then(data=>console.log(data));
 
 window.addEventListener("load", (e) => {
     
