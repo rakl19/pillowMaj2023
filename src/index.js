@@ -2,7 +2,9 @@ import "./styles/main.scss";
 import "./showHolesForm.js";
 import { drawDXF } from "./drawDXF";
 
-fetch("/.netlify/functions/getword").then((res) => res.json()).then(data=>console.log(data));
+fetch("https://www.pillowplate.xyz/.netlify/functions/getword")
+  .then((res) => res.json())
+  .then((data) => console.log(data));
 
 window.addEventListener("load", (e) => {
     
