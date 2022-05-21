@@ -4,7 +4,7 @@ import { drawDXF } from "./drawDXF";
 
 window.addEventListener("load", (e) => {
   fetch("/getword")
-    .then((res) => console.log(res.json())
+    .then((res) => console.log(res.json());
     
   // const getWord = async () => {
   //   const res = await fetch("/.netlify/functions/getword");
