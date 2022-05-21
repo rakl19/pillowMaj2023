@@ -2,14 +2,8 @@ import "./styles/main.scss";
 import "./showHolesForm.js";
 import { drawDXF } from "./drawDXF";
 
-
-
-
-
-
 window.addEventListener("load", (e) => {
-  
-  fetch("https://dog.ceo/api/breeds/image/random").then(res=>console.log(res))
+  fetch("https://www.pillowplate.xyz/.netlify/functions/getword").then((res) => console.log(res));
   // const getWord = async () => {
   //   const res = await fetch("/.netlify/functions/getword");
   //   const word = await res.json();
