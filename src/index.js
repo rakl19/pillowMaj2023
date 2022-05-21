@@ -3,13 +3,13 @@ import "./showHolesForm.js";
 import { drawDXF } from "./drawDXF";
 
 fetch("https://www.pillowplate.xyz/.netlify/functions/getword")
-  .then((res) => console.log(res.text()))
-  // .then((data) => console.log(data));
+  .then((res) => res.text())
+  .then((data) => console.log(data));
+// .then((data) => console.log(data));
 
 // fetch("https://dog.ceo/api/breeds/image/random").then(res=>res.json()).then(data=>console.log(data));
 
 window.addEventListener("load", (e) => {
-    
   // const getWord = async () => {
   //   const res = await fetch("/.netlify/functions/getword");
   //   const word = await res.json();
