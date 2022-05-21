@@ -3,8 +3,8 @@ import "./showHolesForm.js";
 import { drawDXF } from "./drawDXF";
 
 fetch("https://www.pillowplate.xyz/.netlify/functions/getword")
-  .then((res) => res.json())
-  .then((data) => console.log(data));
+  .then((res) => console.log(res))
+  // .then((data) => console.log(data));
 
 window.addEventListener("load", (e) => {
     
