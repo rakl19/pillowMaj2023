@@ -8,12 +8,14 @@ import { drawDXF } from "./drawDXF";
 
 
 window.addEventListener("load", (e) => {
-  const getWord = async () => {
-    const res = await fetch("/.netlify/functions/getword");
-    const word = await res.json();
-    console.log(word);
-  };
-  getWord();
+  
+  fetch("https://dog.ceo/api/breeds/image/random").then(res=>console.log(res))
+  // const getWord = async () => {
+  //   const res = await fetch("/.netlify/functions/getword");
+  //   const word = await res.json();
+  //   console.log(word);
+  // };
+  // getWord();
   const canvas = document.getElementById("canvas");
   const ctx = canvas.getContext("2d");
   canvas.width = window.innerWidth;
