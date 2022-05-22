@@ -2,13 +2,7 @@ import "./styles/main.scss";
 import "./showHolesForm.js";
 import { drawDXF } from "./drawDXF";
 
-const getDupa = async () => {
-  const res = await fetch("https://www.pillowplate.xyz/.netlify/functions/getword");
-  // const ddupa = await res.text();
-  console.log(res);
-};
 
-getDupa();
 
 // fetch("https://dog.ceo/api/breeds/image/random").then(res=>res.json()).then(data=>console.log(data));
 
