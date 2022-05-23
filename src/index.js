@@ -6,14 +6,15 @@ import { drawDXF } from "./drawDXF";
 // fetch("https://dog.ceo/api/breeds/image/random").then(res=>res.json()).then(data=>console.log(data));
 // fetch("/.netlify/functions/dupa").then(res=>res.json()).then(data=>console.log(data));
 
-const fetchData = async () => {
-const res = await fetch("/.netlify/functions/dupa");
-const stat = await res.json();
-console.log(stat);
-}
-
-fetchData()
-
+// const fetchData = async () => {
+  // const res = await fetch("/.netlify/functions/dupa");
+  // const stat = await res.json();
+  // console.log(stat);
+  // }
+  
+  // fetchData()
+  
+  fetch("/.netlify/functions/dupa").then(res=>res.json()).then(data=>console.log(data));
 
 
 //  const fetchData = async () => {
