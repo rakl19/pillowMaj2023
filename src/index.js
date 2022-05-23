@@ -3,23 +3,23 @@ import "./showHolesForm.js";
 import { drawDXF } from "./drawDXF";
 // const axios = require("axios").default;
 
-// fetch("https://dog.ceo/api/breeds/image/random").then(res=>res.json()).then(data=>console.log(data));
+fetch("https://dog.ceo/api/breeds/image/random").then(res=>res.json()).then(data=>console.log(data));
 
 
 
- const fetchData = async () => {
-   try {
-     // const { data } = await axios.get("/.netlify/functions/dupa");
-     //  const { data } = await axios.get("https://dog.ceo/api/breeds/image/random");
-     const res = await fetch("https://dog.ceo/api/breeds/image/random");
-     const data = await res.json();
-     console.log(data);
-   } catch (err) {
-     console.log(err);
-   }
- };
+//  const fetchData = async () => {
+//    try {
+//      // const { data } = await axios.get("/.netlify/functions/dupa");
+//      //  const { data } = await axios.get("https://dog.ceo/api/breeds/image/random");
+//      const res = await fetch("https://dog.ceo/api/breeds/image/random");
+//      const data = await res.json();
+//      console.log(data);
+//    } catch (err) {
+//      console.log(err);
+//    }
+//  };
 
- fetchData();
+//  fetchData();
 
 window.addEventListener("load", (e) => {
  
