@@ -5,10 +5,14 @@ const axios = require("axios").default;
 
 // fetch("https://dog.ceo/api/breeds/image/random").then(res=>res.json()).then(data=>console.log(data));
 
+  
+
+
 window.addEventListener("load", (e) => {
+
   const fetchData = async () => {
     try {
-      const {data} = await axios.get("./netlify/functions/dupa");
+      const { data } = await axios.get("/.netlify/functions/dupa");
       console.log(data);
     } catch (err) {
       console.log(err);
@@ -16,6 +20,7 @@ window.addEventListener("load", (e) => {
   };
 
   fetchData();
+
 
   // const getWord = async () => {
   //   const res = await fetch("/.netlify/functions/getword");
