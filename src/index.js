@@ -8,7 +8,7 @@ import { drawDXF } from "./drawDXF";
 
 const fetchData = async () => {
 const res = await fetch("/.netlify/functions/dupa");
-const stat = await res.text()
+const stat = await res.json();
 console.log(stat);
 }
 
