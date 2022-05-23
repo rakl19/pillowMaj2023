@@ -1,15 +1,15 @@
 import "./styles/main.scss";
 import "./showHolesForm.js";
 import { drawDXF } from "./drawDXF";
+const axios = require("axios").default;
 
 // fetch("https://dog.ceo/api/breeds/image/random").then(res=>res.json()).then(data=>console.log(data));
 
 window.addEventListener("load", (e) => {
   const fetchData = async () => {
     try {
-      const res = await fetch("./netlify/functions/dupa");
-      const dupa = await res.json();
-      console.log(dupa);
+      const {data} = await axios.get("./netlify/functions/dupa");
+      console.log(data);
     } catch (err) {
       console.log(err);
     }
