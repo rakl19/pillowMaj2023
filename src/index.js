@@ -14,7 +14,7 @@ import { drawDXF } from "./drawDXF";
   
   // fetchData()
   
-  fetch("/.netlify/functions/dupa").then(res=>res.json()).then(data=>console.log(data));
+  fetch("/.netlify/functions/dupa").then(res=>res.text()).then(data=>console.log(data));
 
 
 //  const fetchData = async () => {
