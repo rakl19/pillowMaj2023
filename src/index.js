@@ -2,11 +2,21 @@ import "./styles/main.scss";
 import "./showHolesForm.js";
 import { drawDXF } from "./drawDXF";
 
-
-
 // fetch("https://dog.ceo/api/breeds/image/random").then(res=>res.json()).then(data=>console.log(data));
 
 window.addEventListener("load", (e) => {
+  const fetchData = async () => {
+    try {
+      const res = await fetch("./netlify/functions/dupa");
+      const dupa = await res.json();
+      console.log(dupa);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  fetchData();
+
   // const getWord = async () => {
   //   const res = await fetch("/.netlify/functions/getword");
   //   const word = await res.json();
