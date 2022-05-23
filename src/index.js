@@ -5,8 +5,14 @@ import { drawDXF } from "./drawDXF";
 
 // fetch("https://dog.ceo/api/breeds/image/random").then(res=>res.json()).then(data=>console.log(data));
 // fetch("/.netlify/functions/dupa").then(res=>res.json()).then(data=>console.log(data));
-const stat = fetch("/.netlify/functions/dupa").then(res=>res.text()));
+
+const fetchData = async () => {
+const res = await fetch("/.netlify/functions/dupa");
+const stat = await res.text()
 console.log(stat);
+}
+
+fetchData()
 
 
 
