@@ -1,7 +1,7 @@
 import "./styles/main.scss";
 import "./showHolesForm.js";
 import { drawDXF } from "./drawDXF";
-const axios = require("axios").default;
+// const axios = require("axios").default;
 
 // fetch("https://dog.ceo/api/breeds/image/random").then(res=>res.json()).then(data=>console.log(data));
 
