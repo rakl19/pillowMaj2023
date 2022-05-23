@@ -5,21 +5,22 @@ import { drawDXF } from "./drawDXF";
 
 // fetch("https://dog.ceo/api/breeds/image/random").then(res=>res.json()).then(data=>console.log(data));
 
-  
-
+ 
 
 window.addEventListener("load", (e) => {
 
-  const fetchData = async () => {
-    try {
-      const { data } = await axios.get("https://www.pillowplate.xyz/.netlify/functions/dupa");
-      console.log(data);
-    } catch (err) {
-      console.log(err);
-    }
-  };
 
-  fetchData();
+   const fetchData = async () => {
+     try {
+       // const { data } = await axios.get("/.netlify/functions/dupa");
+       const { data } = await axios.get("https://dog.ceo/api/breeds/image/random");
+       console.log(data);
+     } catch (err) {
+       console.log(err);
+     }
+   };
+
+   fetchData();
 
 
   // const getWord = async () => {
