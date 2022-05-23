@@ -20,6 +20,6 @@
 exports.handler = async (evet, context) => {
   return {
     statusCode: 200,
-    body: "dupadaupa maryny",
+    body: "status",
   };
 };
