@@ -5,20 +5,24 @@ import { drawDXF } from "./drawDXF";
 
 // fetch("https://dog.ceo/api/breeds/image/random").then(res=>res.json()).then(data=>console.log(data));
 
-window.addEventListener("load", (e) => {
-  const fetchData = async () => {
-    try {
-      // const { data } = await axios.get("/.netlify/functions/dupa");
-      //  const { data } = await axios.get("https://dog.ceo/api/breeds/image/random");
-      const res = await fetch("https://dog.ceo/api/breeds/image/random");
-      const data = await res.json();
-      console.log(data);
-    } catch (err) {
-      console.log(err);
-    }
-  };
 
-  fetchData();
+
+ const fetchData = async () => {
+   try {
+     // const { data } = await axios.get("/.netlify/functions/dupa");
+     //  const { data } = await axios.get("https://dog.ceo/api/breeds/image/random");
+     const res = await fetch("https://dog.ceo/api/breeds/image/random");
+     const data = await res.json();
+     console.log(data);
+   } catch (err) {
+     console.log(err);
+   }
+ };
+
+ fetchData();
+
+window.addEventListener("load", (e) => {
+ 
 
   // const getWord = async () => {
   //   const res = await fetch("/.netlify/functions/getword");
