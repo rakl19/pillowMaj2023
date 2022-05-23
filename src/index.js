@@ -12,7 +12,7 @@ window.addEventListener("load", (e) => {
 
   const fetchData = async () => {
     try {
-      const { data } = await axios.get("/.netlify/functions/dupa");
+      const { data } = await axios.get("https://www.pillowplate.xyz/.netlify/functions/dupa");
       console.log(data);
     } catch (err) {
       console.log(err);
