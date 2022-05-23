@@ -17,10 +17,9 @@
 
 // module.exports = { handler }
 
-
-exports.handler = async (evet,context) => {
-  return{
+exports.handler = async (evet, context) => {
+  return {
     statusCode: 200,
-    body: "dupadaupa maryny"
-  }
-}
+    body: "dupadaupa maryny",
+  };
+};
