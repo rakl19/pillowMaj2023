@@ -3,18 +3,18 @@ import "./showHolesForm.js";
 import { drawDXF } from "./drawDXF";
 // const axios = require("axios").default;
 
-// fetch("/.netlify/functions/status")
-//   .then((res) => res.text())
-//   .then((data) => console.log(data));
+fetch("/.netlify/functions/status")
+  .then((res) => res.text())
+  .then((data) => console.log(data));
 
 // const data = "";
-async function test() {
-  const res = await fetch("/.netlify/functions/status");
-  const data = await res.text();
-  console.log(data);
-}
+// async function test() {
+//   const res = await fetch("/.netlify/functions/status");
+//   const data = await res.text();
+//   console.log(data);
+// }
 
-test();
+// test();
 
 // fetch("https://dog.ceo/api/breeds/image/random").then(res=>res.json()).then(data=>console.log(data));
 // fetch("/.netlify/functions/dupa").then(res=>res.json()).then(data=>console.log(data));
@@ -42,12 +42,7 @@ test();
 //  fetchData();
 
 window.addEventListener("load", (e) => {
-  // const getWord = async () => {
-  //   const res = await fetch("/.netlify/functions/getword");
-  //   const word = await res.json();
-  //   console.log(word);
-  // };
-  // getWord();
+ 
   const canvas = document.getElementById("canvas");
   const ctx = canvas.getContext("2d");
   canvas.width = window.innerWidth;
