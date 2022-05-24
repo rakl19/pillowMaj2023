@@ -55,18 +55,15 @@ window.addEventListener("load", (e) => {
   fetch("/.netlify/functions/status")
     .then((res) => res.text())
     .then((data) => {
-      const translatePos = {
-        x: +data,
-        y: 100,
-      };
+      console.log(data*1);
     });
 
   let scale = 1.0;
   const startDragOffset = {};
-  // const translatePos = {
-  //   x: 50,
-  //   y: 100,
-  // };
+  const translatePos = {
+    x: 50,
+    y: 100,
+  };
   let mouseDown = false;
 
   let form = document.forms.myForm;
