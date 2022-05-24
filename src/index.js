@@ -51,22 +51,22 @@ window.addEventListener("load", (e) => {
   // ctx.imageSmoothingEnabled = false;
 
   const h6 = document.getElementById("status");
-  const dupa = "";
 
   fetch("/.netlify/functions/status")
     .then((res) => res.text())
     .then((data) => {
-      const dupa = data;
+      const translatePos = {
+        x: +data,
+        y: 100,
+      };
     });
-
-  console.log(dupa);
 
   let scale = 1.0;
   const startDragOffset = {};
-  const translatePos = {
-    x: 50,
-    y: 100,
-  };
+  // const translatePos = {
+  //   x: 50,
+  //   y: 100,
+  // };
   let mouseDown = false;
 
   let form = document.forms.myForm;
