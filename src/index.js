@@ -40,8 +40,8 @@ import { drawDXF } from "./drawDXF";
 fetch("/.netlify/functions/status")
   .then((res) => res.text())
   .then((data) => {
-    if (data * 1 === 50) {
-      window.addEventListener("load", (e) => {
+    if (data * 1 == 50) {
+      // window.addEventListener("load", (e) => {
         const canvas = document.getElementById("canvas");
         const ctx = canvas.getContext("2d");
         canvas.width = window.innerWidth;
@@ -718,6 +718,6 @@ fetch("/.netlify/functions/status")
           // getInputs();
           drawDXF(obj);
         });
-      });
-    }
-  });
+      };
+    })
+  // });
