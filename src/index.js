@@ -53,12 +53,14 @@ window.addEventListener("load", (e) => {
   // ctx.msImageSmoothingEnabled = false;
   // ctx.imageSmoothingEnabled = false;
 
-  // const h6 = document.getElementById("status");
+  const h6 = document.getElementById("status");
 
 
   fetch("/.netlify/functions/status")
     .then((res) => res.text())
-    .then((data) => {const h6 = document.getElementById(data)});
+    .then((data) => {const dupa = data});
+
+    console.log(dupa);
 
   let scale = 1.0;
   const startDragOffset = {};
