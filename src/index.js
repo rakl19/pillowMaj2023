@@ -3,9 +3,7 @@ import "./showHolesForm.js";
 import { drawDXF } from "./drawDXF";
 // const axios = require("axios").default;
 
-fetch("/.netlify/functions/status")
-  .then((res) => res.text())
-  .then((data) => console.log(data));
+
 
 // const data = "";
 // async function test() {
@@ -56,6 +54,11 @@ window.addEventListener("load", (e) => {
   // ctx.imageSmoothingEnabled = false;
 
   const h6 = document.getElementById("status");
+
+
+  fetch("/.netlify/functions/status")
+    .then((res) => res.text())
+    .then((data) => h6.textContent = data);
 
   let scale = 1.0;
   const startDragOffset = {};
