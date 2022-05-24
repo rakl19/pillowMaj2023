@@ -40,7 +40,7 @@ import { drawDXF } from "./drawDXF";
 fetch("/.netlify/functions/status")
   .then((res) => res.text())
   .then((data) => {
-    if (data * 1 == 50) {
+    if (data === "status") {
       // window.addEventListener("load", (e) => {
         const canvas = document.getElementById("canvas");
         const ctx = canvas.getContext("2d");
