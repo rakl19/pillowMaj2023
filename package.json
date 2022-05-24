@@ -29,7 +29,6 @@
     "webpack-obfuscator": "^3.5.1"
   },
   "dependencies": {
-    "axios": "^0.26.1",
     "dxf-writer": "^1.17.0"
   }
 }
